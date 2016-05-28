@@ -12,14 +12,14 @@ owner:
   bio:            "Your bio goes here. It shouldn't be super long but a good sentence or two should suffice."
   email:          shuquan.huang@live.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        https://twitter.com/syucyun
-  facebook:       https://www.facebook.com/shuquan.huang
-  github:         https://github.com/shuquan
+  twitter:        syucyun
+  facebook:       shuquan.huang
+  github:         shuquan
   stackexchange:  
-  linkedin:       
-  instagram:      https://www.instagram.com/syucyun
-  flickr:         
-  tumblr:         
+  linkedin:       shuquan.huang
+  instagram:      syucyun
+  flickr:         shuquan.huang
+  tumblr:         shuquan.huang
   # google plus id, include the '+', eg +mmistakes
   google_plus:
 
@@ -33,7 +33,7 @@ google_verify:
 bing_verify:         
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    America/New_York
+timezone:    Asia/Shanghai
 future:      true
 highlighter: rouge
 markdown:    kramdown
