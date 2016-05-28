@@ -17,3 +17,12 @@ github_username:  shuquan
 
 # Build settings
 markdown: kramdown
+
+gems:
+   - jekyll-mentions
+   - jemoji
+   - jekyll-redirect-from
+   - jekyll-sitemap
+   - jekyll-feed
+
+
