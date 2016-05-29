@@ -4,22 +4,23 @@ disqus_shortname:
 reading_time:     true
 words_per_minute: 200
 url:              "http://shuquan.github.io"
+# url:              "http://127.0.0.1:4000"
 
 # Owner/author information
 owner:
   name:           Shuquan Huang
   avatar:         avatar.jpg
-  bio:            "Your bio goes here. It shouldn't be super long but a good sentence or two should suffice."
+  bio:            "No hell below us, Above us only sky."
   email:          shuquan.huang@live.com
   # Social networking links used in footer. Update and remove as you like.
   twitter:        syucyun
   facebook:       shuquan.huang
   github:         shuquan
   stackexchange:  
-  linkedin:       shuquan.huang
+  linkedin:       shuquan-huang-a8b13b66
   instagram:      syucyun
   flickr:         shuquan.huang
-  tumblr:         shuquan.huang
+  tumblr:         syucyun
   # google plus id, include the '+', eg +mmistakes
   google_plus:
 
