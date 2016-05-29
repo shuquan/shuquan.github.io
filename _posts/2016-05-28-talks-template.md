@@ -2,7 +2,7 @@
 layout: slide
 title: "Shuquan's Talk Template"
 date: 2016-05-28
-categories: presentation
+tags: [presentation]
 theme: league
 transition: slide
 ---
