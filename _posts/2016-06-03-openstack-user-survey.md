@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some key takeaway from OpenStack User Survey 2016 April.
+title: Some key takeaway from OpenStack User Survey 2016 April
 description: "Some key takeaway from OpenStack User Survey 2016 April."
 modified: 2016-06-03
 tags: [openstack]
