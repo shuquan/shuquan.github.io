@@ -35,7 +35,7 @@ image:
   {% assign post_content = post.content %}
   {% for tag in post.tags %}
     {% if tag == 'presentation' %}
-      {% assign post_content = 'Click to see the detail of this Presentation.' %}
+      {% assign post_content = '' %}
     {% endif %}
   {% endfor %}
   {{ post_content }}
