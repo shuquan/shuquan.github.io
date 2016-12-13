@@ -11,4 +11,3 @@ tags: [federation, keystone, openstack]
 ~~~ shell
 $ apt-get install libapache2-mod-shib2
 ~~~
-
