@@ -15,11 +15,13 @@ tags: [federation, keystone, openstack, hybrid cloud]
 
 ### Environment
 
+~~~ shell
 +-------------------+     +------------------+
 |                   |     |                  |
 | IdP:172.16.40.113 |     | SP:172.16.40.114 |
 |                   |     |                  |
 +-------------------+     +------------------+
+~~~
 
 ### Demo step
 
