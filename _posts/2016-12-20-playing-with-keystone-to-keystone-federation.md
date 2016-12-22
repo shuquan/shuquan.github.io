@@ -11,7 +11,7 @@ tags: [federation, keystone, openstack, hybrid cloud]
 * [Configure Keystone to Testshib Federation with SAML](https://bigjools.wordpress.com/2015/05/22/saml-federation-with-openstack/)
 * [Configure Keystone federation with Kerberos](https://bigjools.wordpress.com/2015/04/27/federated-openstack-logins-using-kerberos/)
 * [Configure Keystone federation with multi-IDP](https://zenodo.org/record/11982/files/CERN_openlab_Luca_Tartarini.pdf)
-* [Offical Keystone Federated Identity](http://docs.openstack.org/developer/keystone/federation/federated_identity.html)
+* [OpenStack Keystone Federated Identity](http://docs.openstack.org/developer/keystone/federation/federated_identity.html)
 
 ### Environment
 
