@@ -15,6 +15,8 @@ tags: [federation, keystone, openstack, hybrid cloud]
 
 ### Environment
 
+I run two devstacks and change the token from fernet to uuid.
+
 ~~~ shell
 +-------------------+     +------------------+
 |                   |     |                  |
