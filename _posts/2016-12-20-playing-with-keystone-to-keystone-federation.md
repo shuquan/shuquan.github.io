@@ -60,7 +60,7 @@ Unscoped token id: 114350fd00434c1b83838c65464aa7c8
 
 #### Scope the unscoped token with specific domain and project name.
 
-{% highlight html %}
+{% highlight shell %}
 {% raw %}
 $ curl -X POST -H "Content-Type: application/json" -d '{"auth":{"identity":{"methods":["token"],"token":{"id":"114350fd00434c1b83838c65464aa7c8"}},"scope":{"project":{"domain": {"name": "Default"},"name":"admin"}}}}' -D - http://172.16.40.114:5000/v3/auth/tokens
 {% endraw %}
@@ -68,7 +68,8 @@ $ curl -X POST -H "Content-Type: application/json" -d '{"auth":{"identity":{"met
 
 And you'll get something that looks like this:
 
-~~~ shell
+{% highlight shell %}
+{% raw %}
 HTTP/1.1 201 Created
 Date: Tue, 20 Dec 2016 10:20:14 GMT
 Server: Apache/2.4.7 (Ubuntu)
@@ -358,7 +359,8 @@ Content-Type: application/json
         }
     }
 }
-~~~
+{% endraw %}
+{% endhighlight %}
 
 You can copy the scoped token from **X-Subject-Token** at the response header and use it in the next step.
 
@@ -366,7 +368,8 @@ You can copy the scoped token from **X-Subject-Token** at the response header an
 
 Use the scoped token to interact with SP endpoints.
 
-~~~ shell
+{% highlight shell %}
+{% raw %}
 $ curl -g  -X GET http://172.16.40.114:5000/v3/users -H "Accept: application/json" -H "X-Auth-Token: 5f8e00d777754986a63dbab3431aa867" | python -m json.tool
 
 {
@@ -470,4 +473,5 @@ $ curl -g  -X GET http://172.16.40.114:5000/v3/users -H "Accept: application/jso
         }
     ]
 }
-~~~
+{% endraw %}
+{% endhighlight %}
