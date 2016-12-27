@@ -6,17 +6,21 @@ modified: 2016-02-01
 tags: [federation, keystone, openstack, hybrid cloud]
 ---
 
-### Reference
+### Summary
 
-* [Configure Keystone to Keystone Federation](http://blog.rodrigods.com/it-is-time-to-play-with-keystone-to-keystone-federation-in-kilo/)
-* [Configure Keystone to Testshib Federation with SAML](https://bigjools.wordpress.com/2015/05/22/saml-federation-with-openstack/)
-* [Configure Keystone federation with Kerberos](https://bigjools.wordpress.com/2015/04/27/federated-openstack-logins-using-kerberos/)
-* [Configure Keystone federation with multi-IDP](https://zenodo.org/record/11982/files/CERN_openlab_Luca_Tartarini.pdf)
-* [OpenStack Keystone Federated Identity](http://docs.openstack.org/developer/keystone/federation/federated_identity.html)
+
 
 ### Environment
 
-1. I setup the keystone to keystone federation with two devstacks as below. Please pay attention that this guide is based on devstack which assumes keystone is running under Apache already.
+~~~ shell
++-------------------+     +------------------+
+|                   |     |                  |
+| IdP:172.16.40.115 |     | SP:172.16.40.112 |
+|                   |     |                  |
++-------------------+     +------------------+
+~~~
+
+1. I setup the keystone to keystone federation with two devstacks. Please pay attention that this guide is based on devstack which assumes keystone is running under Apache already.
 2. Use SAML2 as the federation protocol.
 3. It only works in CLI. No horizon SSO enabled in this guide right now.
 4. Software Versions
@@ -40,14 +44,6 @@ tags: [federation, keystone, openstack, hybrid cloud]
 | libxmlsec1-openssl     | 1.2.18-2ubuntu1    | Openssl engine for the XML security library                |
 |=====
 {: rules="groups"}            
-
-~~~ shell
-+-------------------+     +------------------+
-|                   |     |                  |
-| IdP:172.16.40.115 |     | SP:172.16.40.112 |
-|                   |     |                  |
-+-------------------+     +------------------+
-~~~
 
 ### Keystone as a Service Provider (SP)
 
@@ -81,7 +77,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 #### Setup Shibboleth
 
-Just follow the instruction of the official docs and nothing specific. :) My changes are shown below.
+Just follow the instruction of the official docs and nothing special. :) My changes are shown below.
 
 * /etc/shibboleth/shibboleth2.xml
 
@@ -464,3 +460,15 @@ ubuntu@shuquan-devstack-idp:~$ openstack service provider show mysp
 +--------------------+------------------------------------------------------------------------------------------+
 {% endraw %}
 {% endhighlight %}
+
+### Validation
+
+
+
+### Reference
+
+* [Configure Keystone to Keystone Federation](http://blog.rodrigods.com/it-is-time-to-play-with-keystone-to-keystone-federation-in-kilo/)
+* [Configure Keystone to Testshib Federation with SAML](https://bigjools.wordpress.com/2015/05/22/saml-federation-with-openstack/)
+* [Configure Keystone federation with Kerberos](https://bigjools.wordpress.com/2015/04/27/federated-openstack-logins-using-kerberos/)
+* [Configure Keystone federation with multi-IDP](https://zenodo.org/record/11982/files/CERN_openlab_Luca_Tartarini.pdf)
+* [OpenStack Keystone Federated Identity](http://docs.openstack.org/developer/keystone/federation/federated_identity.html)
