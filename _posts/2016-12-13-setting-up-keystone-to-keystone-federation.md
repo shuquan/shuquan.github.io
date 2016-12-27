@@ -20,6 +20,7 @@ tags: [federation, keystone, openstack, hybrid cloud]
 2. Use SAML2 as the federation protocol.
 3. It only works in CLI. No horizon SSO enabled in this guide right now.
 4. Software Versions
+
 | Software               | Version            | Description                                              
 |:-----------------------|:------------------:| :--------------------------------------------------------  |
 | OS                     | Ubuntu 14.04.3 LTS |                                                            |
@@ -300,7 +301,7 @@ $ openstack federation protocol create mapped --mapping myidp_mapping --identity
 Finish the following configuration in IdP:172.16.40.115.
 
 1. Package Installation.
-2. [Configure Federation in Keystone]（http://docs.openstack.org/developer/keystone/federation/federated_identity.html#keystone-as-an-identity-provider-idp）
+2. [Configure Federation in Keystone](http://docs.openstack.org/developer/keystone/federation/federated_identity.html#keystone-as-an-identity-provider-idp)
 
 After the configuration, the total changes in my /etc is shown below.
 
@@ -327,6 +328,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 #### Package Installation
 
 The only package need to install is **xmlsec1**.
+
 ~~~ shell
 $ apt-get install xmlsec1
 ~~~
@@ -334,10 +336,12 @@ $ apt-get install xmlsec1
 #### Configure Federation in Keystone
 
 1. Enable IdP is easier because you don't need to deal with Shibboleth. Before following the official documentation, you should generate a self-signed cert-key pair for signing in the future and configure it properly in keystone and apache configure file.
+
 ~~~ shell
 $ openssl req -x509 -newkey rsa:2048 -keyout /etc/keystone/ssl/private/signing_key.pem -out /etc/keystone/ssl/certs/signing_cert.pem -days 9999 -nodes
 ~~~
-2. Please pay attention to the SP creation. I made a mistake here and spent some time on debugging. The key is that you don't need to use entityID of shibboleth2.xml in SP for --service-provider-url setting. http://172.16.40.112/Shibboleth.sso/SAML2/ECP is fine because IdP will send SAML assertion to this link and the entityID may not resolve to anything. Surely, you can set these two value identical.
+
+2. Please pay attention to the SP creation. I made a mistake here and spent some time on debugging. The key is that you don't need to use entityID of shibboleth2.xml in SP for --service-provider-url setting. **http://172.16.40.112/Shibboleth.sso/SAML2/ECP** is fine because IdP will send SAML assertion to this link and the entityID may not resolve to anything. Surely, you can set these two value identical.
 
 * /etc/apache2/sites-available/default-ssl.conf
 {% highlight html %}
