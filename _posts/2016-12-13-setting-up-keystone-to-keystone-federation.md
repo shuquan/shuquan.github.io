@@ -306,7 +306,7 @@ $ openstack federation protocol create mapped --mapping myidp_mapping --identity
 {% endraw %}
 {% endhighlight %}
 
-### Keystone as a Identity Provider (IdP)
+### Keystone as an Identity Provider (IdP)
 
 Finish the following configuration in IdP:172.16.40.115.
 
