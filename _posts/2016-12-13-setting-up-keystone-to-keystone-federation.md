@@ -8,7 +8,18 @@ tags: [federation, keystone, openstack, hybrid cloud]
 
 ### Summary
 
-
+* Keystone as a Service Provider
+  * Install and configure apache to use a federation capable authentication method. If you choose SAML, setup [Shibboleth](https://wiki.shibboleth.net).
+  * Configure federation in keystone
+    * Configure authentication drivers in keystone.conf
+    * Create keystone groups and assign roles
+    * Add Identity Provider(s), Mapping(s), and Protocol(s)
+  * Let SP know IdP.
+* Keystone as a Identity Provider
+  * Install xmlsec1 tool
+  * Configure federation in keystone
+  * Generate Metadata
+  * Let IdP know SP.
 
 ### Environment
 
@@ -463,7 +474,14 @@ ubuntu@shuquan-devstack-idp:~$ openstack service provider show mysp
 
 ### Validation
 
+1. Get an unscoped token.[^1]
+2. Scope the unscoped token with specific domain and project name.
+3. Use the scoped token[^2] to achieve user list in SP.
 
+[^1]:<http://docs.openstack.org/admin-guide/identity-tokens.html#unscoped-tokens>
+[^2]:<http://docs.openstack.org/admin-guide/identity-tokens.html#project-scoped-tokens>
+
+I'll elaborate it in [next post](http://shuquan.github.io/playing-with-keystone-to-keystone-federation/).
 
 ### Reference
 
