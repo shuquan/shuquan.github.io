@@ -5,17 +5,9 @@ description: "Playing with Keystone to Keystone Federation"
 tags: [federation, keystone, openstack, hybrid cloud]
 ---
 
-### Reference
-
-* [Configure Keystone to Keystone Federation](http://blog.rodrigods.com/it-is-time-to-play-with-keystone-to-keystone-federation-in-kilo/)
-* [Configure Keystone to Testshib Federation with SAML](https://bigjools.wordpress.com/2015/05/22/saml-federation-with-openstack/)
-* [Configure Keystone federation with Kerberos](https://bigjools.wordpress.com/2015/04/27/federated-openstack-logins-using-kerberos/)
-* [Configure Keystone federation with multi-IDP](https://zenodo.org/record/11982/files/CERN_openlab_Luca_Tartarini.pdf)
-* [OpenStack Keystone Federated Identity](http://docs.openstack.org/developer/keystone/federation/federated_identity.html)
-
 ### Environment
 
-I run two devstacks and change the token from fernet to uuid.
+In the [previous post](http://shuquan.github.io/setting-up-keystone-to-keystone-federation/), I elaborated how to setup keystone to keystone federation with two devstacks. In this post, I'll use the similar environment except change the token from fernet to uuid for simplicity.
 
 ~~~ shell
 +-------------------+     +------------------+
@@ -477,3 +469,11 @@ $ curl -g  -X GET http://172.16.40.114:5000/v3/users -H "Accept: application/jso
 }
 {% endraw %}
 {% endhighlight %}
+
+### Reference
+
+* [Configure Keystone to Keystone Federation](http://blog.rodrigods.com/it-is-time-to-play-with-keystone-to-keystone-federation-in-kilo/)
+* [Configure Keystone to Testshib Federation with SAML](https://bigjools.wordpress.com/2015/05/22/saml-federation-with-openstack/)
+* [Configure Keystone federation with Kerberos](https://bigjools.wordpress.com/2015/04/27/federated-openstack-logins-using-kerberos/)
+* [Configure Keystone federation with multi-IDP](https://zenodo.org/record/11982/files/CERN_openlab_Luca_Tartarini.pdf)
+* [OpenStack Keystone Federated Identity](http://docs.openstack.org/developer/keystone/federation/federated_identity.html)
