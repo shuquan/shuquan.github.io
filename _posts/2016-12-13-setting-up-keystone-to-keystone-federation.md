@@ -302,9 +302,11 @@ $ cat > rules.json <<EOF
 ]
 EOF
 $ openstack mapping create --rules rules.json myidp_mapping
-$ openstack federation protocol create mapped --mapping myidp_mapping --identity-provider myidp
+$ openstack federation protocol create saml2 --mapping myidp_mapping --identity-provider myidp
 {% endraw %}
 {% endhighlight %}
+
+**Note**: The name you give the protocol is not arbitrary. It must match the method name you gave in the [auth]/methods config option. When authenticating it will be referred to as the protocol_id.
 
 ### Keystone as an Identity Provider (IdP)
 
@@ -353,7 +355,15 @@ $ openssl req -x509 -newkey rsa:2048 -keyout /etc/keystone/ssl/private/signing_k
 {% endraw %}
 {% endhighlight %}
 
-2. Please pay attention to the SP creation. I made a mistake here and spent some time on debugging. The key is that you don't need to use entityID of shibboleth2.xml in SP for --service-provider-url setting. **http://172.16.40.112/Shibboleth.sso/SAML2/ECP** is fine because IdP will send SAML assertion to this link and the entityID may not resolve to anything. Surely, you can set these two value identical.
+2. [Generate Metadata](http://docs.openstack.org/developer/keystone/federation/federated_identity.html#generate-metadata)To create metadata for your keystone IdP, run the keystone-manage command and redirect the output to a file. For example:
+
+{% highlight html %}
+{% raw %}
+$ keystone-manage saml_idp_metadata > /etc/keystone/saml2_idp_metadata.xml
+{% endraw %}
+{% endhighlight %}
+
+3. Please pay attention to the SP creation. I made a mistake here and spent some time on debugging. The key is that you don't need to use entityID of shibboleth2.xml in SP for --service-provider-url setting. **http://172.16.40.112/Shibboleth.sso/SAML2/ECP** is fine because IdP will send SAML assertion to this link and the entityID may not resolve to anything. Surely, you can set these two value identical.
 
 * /etc/apache2/sites-available/default-ssl.conf
 {% highlight html %}
@@ -449,16 +459,10 @@ index e1fd8d8..21ef281 100644
  # client and proxy (ECP) assertions. In a typical deployment, there is no
 {% endraw %}
 {% endhighlight %}
-* Service Provider (SP) Detail.
+* Service Provider (SP) Creation.
 {% highlight html %}
 {% raw %}
-ubuntu@shuquan-devstack-idp:~$ openstack service provider list
-+------+---------+-------------+------------------------------------------------------------------------------------------+
-| ID   | Enabled | Description | Auth URL                                                                                 |
-+------+---------+-------------+------------------------------------------------------------------------------------------+
-| mysp | True    | None        | http://172.16.40.112:5000/v3/OS-FEDERATION/identity_providers/myidp/protocols/saml2/auth |
-+------+---------+-------------+------------------------------------------------------------------------------------------+
-ubuntu@shuquan-devstack-idp:~$ openstack service provider show mysp
+ubuntu@shuquan-devstack-idp:~$ openstack service provider create --service-provider-url 'http://172.16.40.112/Shibboleth.sso/SAML2/ECP' --auth-url http://172.16.40.112:5000/v3/OS-FEDERATION/identity_providers/myidp/protocols/saml2/auth mysp
 +--------------------+------------------------------------------------------------------------------------------+
 | Field              | Value                                                                                    |
 +--------------------+------------------------------------------------------------------------------------------+
