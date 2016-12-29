@@ -349,19 +349,19 @@ $ apt-get install xmlsec1
 
 1. Enable IdP is easier because you don't need to deal with Shibboleth. Before following the official documentation, you should generate a self-signed cert-key pair for signing in the future and configure it properly in keystone and apache configure file.
 
-{% highlight html %}
-{% raw %}
-$ openssl req -x509 -newkey rsa:2048 -keyout /etc/keystone/ssl/private/signing_key.pem -out /etc/keystone/ssl/certs/signing_cert.pem -days 9999 -nodes
-{% endraw %}
-{% endhighlight %}
+   {% highlight html %}
+   {% raw %}
+   $ openssl req -x509 -newkey rsa:2048 -keyout /etc/keystone/ssl/private/signing_key.pem -out /etc/keystone/ssl/certs/signing_cert.pem -days 9999 -nodes
+   {% endraw %}
+   {% endhighlight %}
 
-2. [Generate Metadata](http://docs.openstack.org/developer/keystone/federation/federated_identity.html#generate-metadata)To create metadata for your keystone IdP, run the keystone-manage command and redirect the output to a file. For example:
+2. [Generate Metadata](http://docs.openstack.org/developer/keystone/federation/federated_identity.html#generate-metadata).To create metadata for your keystone IdP, run the keystone-manage command and redirect the output to a file. For example:
 
-{% highlight html %}
-{% raw %}
-$ keystone-manage saml_idp_metadata > /etc/keystone/saml2_idp_metadata.xml
-{% endraw %}
-{% endhighlight %}
+   {% highlight html %}
+   {% raw %}
+   $ keystone-manage saml_idp_metadata > /etc/keystone/saml2_idp_metadata.xml
+   {% endraw %}
+   {% endhighlight %}
 
 3. Please pay attention to the SP creation. I made a mistake here and spent some time on debugging. The key is that you don't need to use entityID of shibboleth2.xml in SP for --service-provider-url setting. **http://172.16.40.112/Shibboleth.sso/SAML2/ECP** is fine because IdP will send SAML assertion to this link and the entityID may not resolve to anything. Surely, you can set these two value identical.
 
