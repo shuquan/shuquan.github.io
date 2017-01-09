@@ -75,7 +75,7 @@ A rule hierarchy looks as follows:
 * rules: top-level list of rules.
 * local: a rule containing information on what local attributes will be mapped.
 * remote: a rule containing information on what remote attributes will be mapped.
-* <condition>: contains information on conditions that allow a rule, can only be set in a remote rule.
+* condition: contains information on conditions that allow a rule, can only be set in a remote rule.
 
 **Note:** You can not set value arbitrary in remote rule. All the value must follow **federation protocol attributes** and the key should be *type*.
 
