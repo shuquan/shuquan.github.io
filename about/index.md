@@ -40,6 +40,12 @@ Nanjing University People's Scholarship, 2006 - 2012
 
 ### SPEECHES
 
+"OpenStack at SJTU: Predictive Data Mining in Clinical Medicine with Dynamical HPC"
+* OpenStack Summit Sydney, 2017.11
+
+"Composable Infrastructure ? Try Valence!"
+* OpenStack Summit Sydney, 2017.11
+
 "Compose Hardware Resources On The Fly with OpenStack Valence"
 * OpenStack Days China, 2017.07
 * OpenStack Summit Boston, 2017.05
