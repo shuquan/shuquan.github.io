@@ -98,6 +98,8 @@ Nanjing University People's Scholarship, 2006 - 2012
 
 ### SERVICES
 
+Programming Committee Member, Private & Hybrid Cloud Track in OpenStack Summit Vancouver, 2018
+
 Track Chair, HOW TO & BEST PRACTICES in OpenStack Summit Boston, 2017
 
 ### PUBLICATIONS
